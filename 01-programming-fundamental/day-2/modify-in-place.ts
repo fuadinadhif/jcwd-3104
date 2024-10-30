@@ -1,0 +1,12 @@
+let saldo = 10;
+// saldo = saldo + 10;
+saldo += 10;
+saldo += 10;
+saldo += 10;
+saldo += 10;
+// saldo = saldo * 100;
+// saldo *= saldo;
+// saldo = saldo % 2;
+// saldo %= 2;
+console.log(saldo);
+console.log(saldo);
