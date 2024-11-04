@@ -18,3 +18,21 @@ console.log(differenceDateInMS / 1000 / 60 / 60 / 24);
 const days = 400;
 const year = days / 365;
 console.log(year.toFixed());
+
+let counter = 5;
+if (counter < 10) {
+  console.log("0");
+} else if (counter > 10 && counter < 20) {
+  console.log("1");
+} else if (counter > 20) {
+  console.log("2");
+}
+
+console.log(`${counter}`);
+
+const point = 1000;
+const pointInString = String(point);
+const pointInArray = pointInString.split("");
+console.log(pointInString);
+pointInArray.splice(1, 0, ".");
+console.log(pointInArray.join(""));

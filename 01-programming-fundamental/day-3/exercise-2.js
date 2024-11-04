@@ -18,8 +18,9 @@ if (num < 1) {
 // Check number after 1 => 2
 for (let i = 2; i < num; i++) {
   if (num % i === 0) {
+    console.log("Running!");
     isPrime = false;
-    break;
+    // break;
   }
 }
 
