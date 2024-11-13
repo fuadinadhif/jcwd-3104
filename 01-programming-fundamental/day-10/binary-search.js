@@ -30,3 +30,54 @@ function binarySearch(array, target) {
 }
 
 console.log(binarySearch([2, 5, 8, 12, 16, 23, 38, 56, 72, 91], 5));
+
+function expect(val) {
+  return {
+    toBe: function (place) {
+      if (val === place) {
+        return true;
+      } else {
+        // throw new Error("Not Equal");
+        throw new Date();
+        // return false;
+      }
+    },
+    notToBe: function (holder) {
+      if (val !== holder) {
+        return true;
+      } else {
+        // throw new Error("Equal");
+        throw new Date();
+        // return false;
+      }
+    },
+  };
+}
+
+function expectToBe(val) {
+  return function toBe(place) {
+    if (val === place) {
+      return true;
+    } else {
+      // throw new Error("Not Equal");
+      return false;
+    }
+  };
+}
+
+function expectNotToBe(val) {
+  return function notToBe(place) {
+    if (val !== place) {
+      return true;
+    } else {
+      // throw new Error("Equal");
+      return false;
+    }
+  };
+}
+
+console.log(expectToBe(5)(5));
+console.log(expectNotToBe(5)(5));
+console.log(expect("Something").toBe("Something"));
+console.log(expect("Something").notToBe("Something"));
+console.log("Hi");
