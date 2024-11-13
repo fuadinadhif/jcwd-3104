@@ -25,7 +25,7 @@ function majorityElement(array) {
   return candidate;
 }
 
-// Boyer-More Completed for All Scenarios
+// Boyer-More - Completed for All Scenarios
 // Time - O(n)
 // Space - O(n)
 function majorityElement(array) {
