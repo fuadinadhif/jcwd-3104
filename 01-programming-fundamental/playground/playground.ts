@@ -36,3 +36,5 @@ const pointInArray = pointInString.split("");
 console.log(pointInString);
 pointInArray.splice(1, 0, ".");
 console.log(pointInArray.join(""));
+
+/* ------------------------------------ - ----------------------------------- */
