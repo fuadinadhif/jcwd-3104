@@ -23,6 +23,7 @@ function timesTwo2(
   num: number,
   callback: (result: number | string) => string
 ): string {
+  console.log(callback);
   const result = String(num * 2);
   return callback(result);
 }

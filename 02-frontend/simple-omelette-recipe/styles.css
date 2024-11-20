@@ -1,0 +1,46 @@
+#preparation-box {
+  background-color: bisque;
+  /* padding: 16px 26px; */
+  padding: 26px 16px 26px 16px;
+  border-radius: 15px;
+}
+
+p,
+h3,
+li {
+  font-family: Outfit;
+}
+
+h3 {
+  margin: 0;
+}
+
+#order-btn {
+  margin-top: 12px;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 12px;
+  font-family: Outfit;
+  background-color: salmon;
+  color: white;
+}
+
+#order-btn:hover {
+  background-color: bisque;
+  cursor: pointer;
+}
+
+ul {
+  /* list-style-image: url("images/image-omelette.jpeg"); */
+  /* list-style: none; */
+}
+
+/* ul li::before {
+  content: "🚨";
+  font-size: 1.2em;
+  margin-right: 5px;
+} */
+
+ol li::marker {
+  color: red;
+}
