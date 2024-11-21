@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Relative</title>
+    <style>
+      .box {
+        width: 100px;
+        height: 100px;
+      }
+
+      #aqua-box {
+        width: 50px;
+        height: 50px;
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        top: 0;
+        left: 0;
+        margin: auto;
+      }
+
+      #hotpink-box {
+        position: relative;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box" style="background-color: salmon"></div>
+
+    <div class="box" id="hotpink-box" style="background-color: hotpink">
+      <div class="box" id="aqua-box" style="background-color: aquamarine"></div>
+    </div>
+  </body>
+</html>

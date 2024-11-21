@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Absolute</title>
+    <style>
+      .second-box {
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        margin: auto;
+      }
+
+      .box {
+        width: 100px;
+        height: 100px;
+        background-color: green;
+        position: relative;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box" style="background-color: salmon">
+      1
+      <div class="second-box box" style="background-color: aquamarine">2</div>
+    </div>
+
+    <div class="box" style="background-color: hotpink">3</div>
+  </body>
+</html>

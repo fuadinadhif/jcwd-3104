@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Relative</title>
+    <style>
+      .box {
+        width: 100px;
+        height: 100px;
+        background-color: green;
+      }
+
+      #second-box {
+        position: relative;
+        width: 50px;
+        height: 50px;
+        top: -90px;
+        /* right: 50px; */
+        /* transform: rotate(45deg); */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box" style="background-color: salmon"></div>
+    <div class="box" id="second-box" style="background-color: aquamarine"></div>
+    <div class="box" style="background-color: hotpink"></div>
+  </body>
+</html>

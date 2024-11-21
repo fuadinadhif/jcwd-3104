@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flex Header</title>
+    <style>
+      .icon div {
+        height: 20px;
+        width: 20px;
+        background-color: blueviolet;
+        border-radius: 50%;
+      }
+
+      nav {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      nav .logo-menu-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      h1 {
+        margin-right: 24px;
+      }
+
+      .menu {
+        display: flex;
+        gap: 15px;
+      }
+
+      .icon {
+        display: flex;
+        gap: 15px;
+      }
+
+      .menu a:hover {
+        background: hotpink;
+      }
+
+      a:hover {
+        background-color: green !important;
+      }
+
+      a {
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="logo-menu-container">
+        <div class="logo"><h1>Logo</h1></div>
+        <div class="menu">
+          <a href="">Categories</a>
+          <a href="">Courses</a>
+          <a href="">Goodies</a>
+          <a href="">About</a>
+        </div>
+      </div>
+      <div class="icon">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </nav>
+  </body>
+</html>
