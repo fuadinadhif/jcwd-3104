@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Whack A Mole</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1><span>Whack</span><span>A Mole!</span></h1>
+    <div class="score-start">
+      <button class="start-btn" onclick="startGame()">Start!</button>
+      <span class="score">0</span>
+    </div>
+
+    <div class="game-container">
+      <div class="hole hole1">
+        <div class="mole"></div>
+      </div>
+      <div class="hole hole2">
+        <div class="mole"></div>
+      </div>
+      <div class="hole hole3">
+        <div class="mole"></div>
+      </div>
+      <div class="hole hole4">
+        <div class="mole"></div>
+      </div>
+      <div class="hole hole5">
+        <div class="mole"></div>
+      </div>
+      <div class="hole hole6">
+        <div class="mole"></div>
+      </div>
+    </div>
+
+    <script>
+      const holes = document.querySelectorAll(".hole");
+      const moles = document.querySelectorAll(".mole");
+      const scoreBoard = document.querySelector(".score");
+      const startBtn = document.querySelector(".start-btn");
+      let timeUp = false;
+      let score = 0;
+
+      function randomHole(holes) {
+        const choosenIndex = Math.floor(Math.random() * holes.length);
+        const choosenHole = holes[choosenIndex];
+        return choosenHole;
+      }
+
+      function peep() {
+        const targetHole = randomHole(holes);
+        targetHole.classList.add("up");
+
+        setTimeout(() => {
+          targetHole.classList.remove("up");
+
+          if (timeUp === false) {
+            peep();
+          }
+        }, 1000);
+      }
+
+      function startGame() {
+        startBtn.textContent = "00:10";
+        startBtn.disabled = true;
+        timeUp = false;
+        score = 0;
+        scoreBoard.textContent = score;
+        peep();
+
+        let counter = 9;
+        let countDownTimer = setInterval(() => {
+          startBtn.textContent = `00:0${counter}`;
+          counter--;
+        }, 1000);
+
+        setTimeout(() => {
+          clearInterval(countDownTimer);
+          startBtn.textContent = "Start!";
+          startBtn.disabled = false;
+          timeUp = true;
+        }, 10000);
+      }
+
+      function bonk(e) {
+        score++;
+        this.parentNode.classList.remove("up");
+        scoreBoard.textContent = score;
+      }
+
+      moles.forEach((mole) => mole.addEventListener("click", bonk));
+    </script>
+  </body>
+</html>

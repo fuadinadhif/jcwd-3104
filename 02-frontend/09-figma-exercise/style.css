@@ -1,0 +1,131 @@
+*,
+html,
+body {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f2eae2;
+}
+
+.container {
+  height: fit-content;
+  max-width: 600px;
+  background-color: white;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.image-container {
+  height: 450px;
+  width: 50%;
+}
+
+.image-container img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.content-container {
+  width: 50%;
+  padding: 32px;
+}
+
+.tag {
+  margin-top: 0px;
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 5px;
+  color: #6c7289;
+}
+
+.title {
+  margin-top: 20px;
+  font-family: "Fraunces", sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 32px;
+  color: #1c232b;
+}
+
+.desc {
+  margin-top: 24px;
+  color: #6c7289;
+  font-family: Montserrat, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 23px;
+}
+
+.price span:nth-child(1) {
+  color: #3d8168;
+  font-family: Fraunces, sans-serif;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 32px;
+}
+.price span:nth-child(2) {
+  color: #6c7289;
+  font-family: Montserrat, sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 23px;
+  text-decoration: line-through;
+}
+
+.price {
+  display: flex;
+  align-items: center;
+  gap: 19px;
+  margin-top: 29px;
+}
+
+button {
+  background-color: #3d8168;
+  border: none;
+  width: 100%;
+  padding: 15px;
+  font-family: Montserrat;
+  font-weight: 700;
+  font-size: 14px;
+  color: white;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-top: 30px;
+}
+
+button:hover {
+  background-color: #1a4032;
+  cursor: pointer;
+}
+
+@media (max-width: 640px) {
+  .container {
+    flex-direction: column;
+    max-width: 343px;
+    position: static;
+  }
+
+  .content-container,
+  .image-container {
+    width: 100%;
+  }
+
+  .image-container {
+    height: 240px;
+  }
+}
