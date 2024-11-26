@@ -1,0 +1,49 @@
+.nav-container {
+  position: fixed;
+  top: 50px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: fit-content;
+}
+
+.nav-container ul {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  list-style-type: none;
+}
+
+.nav-container a {
+  background-color: var(--light-gray);
+  padding: 8px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+.nav-container a.active {
+  border: 2px solid;
+  animation: borderGlitch 3s infinite linear;
+}
+
+@keyframes borderGlitch {
+  0% {
+    border: 2px solid peachpuff;
+  }
+
+  25% {
+    border: 2px solid lime;
+  }
+
+  50% {
+    border: 2px solid blueviolet;
+  }
+
+  75% {
+    border: 2px solid lime;
+  }
+
+  100% {
+    border: 2px solid peachpuff;
+  }
+}

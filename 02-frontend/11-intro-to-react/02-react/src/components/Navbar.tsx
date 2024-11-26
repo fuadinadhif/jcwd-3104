@@ -1,15 +1,21 @@
+import "./Navbar.css";
+import { NavLink } from "react-router";
+
 export default function Navbar() {
   return (
-    <nav>
+    <nav className="nav-container">
       <ul>
         <li>
-          <a href="/jamal">Jamal Page</a>
+          <NavLink to="/">🏠</NavLink>
         </li>
         <li>
-          <a href="/jane">Jane Page</a>
+          <NavLink to="/jamal">Jamal</NavLink>
         </li>
         <li>
-          <a href="/john">John Page</a>
+          <NavLink to="/jane">Jane</NavLink>
+        </li>
+        <li>
+          <NavLink to="/john">John</NavLink>
         </li>
       </ul>
     </nav>

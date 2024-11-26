@@ -1,0 +1,64 @@
+.card {
+  margin-top: 90px;
+  width: 390px;
+  background-color: var(--dark-gray);
+  /* background-color: red; */
+  border-radius: 8px;
+  padding: 32px;
+}
+
+.card .image-container {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card p {
+  text-align: center;
+}
+
+.card .name {
+  margin-top: 20px;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.card .location {
+  font-size: 14px;
+  color: var(--lemon);
+  font-weight: 600;
+}
+
+.card .bio {
+  font-size: 14px;
+  margin-top: 15px;
+}
+
+.card .links {
+  display: flex;
+  flex-direction: column;
+  margin-top: 25px;
+  gap: 15px;
+}
+
+.card .links a {
+  background-color: var(--light-gray);
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 8px;
+}
+
+.card .links a:hover {
+  background-color: var(--lemon);
+  color: var(--light-gray);
+}
