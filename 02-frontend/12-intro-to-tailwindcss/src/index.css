@@ -1,3 +1,30 @@
+@import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-light-green flex min-h-screen justify-center items-center font-karla;
+  }
+
+  input,
+  textarea {
+    @apply border border-medium-grey rounded-md min-h-9;
+  }
+}
+
+@layer components {
+  .col-wrapper {
+    @apply flex flex-col flex-1;
+  }
+
+  .input-title {
+    @apply mb-2 text-xs text-dark-grey;
+  }
+
+  .radio-wrapper {
+    @apply border border-medium-grey rounded-md min-h-9 flex-1 flex items-center px-4 gap-2;
+  }
+}
