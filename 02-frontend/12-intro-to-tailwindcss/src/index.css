@@ -11,7 +11,7 @@
 
   input,
   textarea {
-    @apply border border-medium-grey rounded-md min-h-9;
+    @apply border border-medium-grey rounded-md min-h-9 focus:outline-medium-green px-4 py-2;
   }
 }
 
@@ -26,5 +26,9 @@
 
   .radio-wrapper {
     @apply border border-medium-grey rounded-md min-h-9 flex-1 flex items-center px-4 gap-2;
+  }
+
+  .radio-wrapper:has(input:checked) {
+    @apply bg-light-green;
   }
 }
