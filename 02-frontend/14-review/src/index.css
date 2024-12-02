@@ -1,0 +1,36 @@
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-red-hat-text p-8 bg-our-rose-50;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/*                            Custom Layer Example                            */
+/* -------------------------------------------------------------------------- */
+/* 
+@layer base {
+  h1 {
+    @apply text-6xl text-red-500
+    font-size: 50px;
+    color: red;
+  }
+}
+
+@layer components {
+  .customParagraph {
+    font-size: 24px;
+    color: blue;
+  }
+}
+
+@layer utilities {
+  .border-red-500 {
+    border-color: purple;
+  }
+} */
