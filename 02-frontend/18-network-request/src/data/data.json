@@ -1,0 +1,25 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "title": "a title",
+      "content": "Some content here",
+      "views": 100,
+      "author": "Jackie Chan"
+    },
+    {
+      "id": "2",
+      "title": "another title",
+      "content": "Another content here",
+      "views": 200,
+      "author": "Brad Pitt"
+    },
+    {
+      "id": "3",
+      "title": "new new title",
+      "content": "Some other content here",
+      "views": 0,
+      "author": "John Doe"
+    }
+  ]
+}

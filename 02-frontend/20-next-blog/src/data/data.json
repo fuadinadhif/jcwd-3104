@@ -1,0 +1,100 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "title": "Benefits of Morning Exercise",
+      "author": "John Doe",
+      "content": "Starting your day with morning exercise offers numerous health and lifestyle benefits. Engaging in physical activity early in the morning helps jumpstart your metabolism, allowing your body to burn more calories throughout the day. It also increases your heart rate, improving cardiovascular health and enhancing overall fitness levels.\n\nExercise triggers the release of endorphins, also known as 'feel-good' hormones, which elevate your mood and reduce stress. This natural mood booster can set a positive tone for your entire day, making you more resilient against daily challenges.\n\nMorning workouts improve mental clarity and focus, making you more productive and efficient at work or school. You’ll likely experience enhanced concentration, better decision-making skills, and increased energy levels throughout the day.\n\nConsistency is easier to maintain with morning exercises. Starting your day with a workout reduces the risk of skipping it due to unexpected plans or fatigue later in the day. It establishes a healthy routine that becomes a natural part of your daily schedule.\n\nLastly, morning exercise can improve sleep patterns. Waking up early to work out regulates your body’s internal clock, helping you fall asleep faster and enjoy deeper, more restorative sleep at night.",
+      "views": 0,
+      "date": "04-10-2024",
+      "image": "https://images.unsplash.com/photo-1532630571098-79a3d222b00d?q=80&w=1944&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+      "id": "2",
+      "title": "Simple Home Decorating Ideas",
+      "author": "Jane Smith",
+      "content": "Transforming your home into a cozy and inviting space doesn't have to be complicated or expensive. One of the easiest ways to elevate your home’s ambiance is by incorporating indoor plants. They not only purify the air but also bring a sense of tranquility and freshness to your living environment.\n\nAnother simple yet impactful change is updating your textiles. Use throw blankets and decorative pillows in warm, neutral tones or seasonal patterns. These small accents can instantly add comfort and style to your home.\n\nPersonal art pieces and family photos create a meaningful atmosphere. Consider framing your favorite memories or displaying art that resonates with your personality. A well-curated gallery wall can become the focal point of a room.\n\nLighting plays a crucial role in home decor. Swap out harsh overhead lights for soft, warm-toned lamps and string lights. Proper lighting can create a relaxing and welcoming ambiance that makes your home feel more inviting.\n\nLastly, decluttering is essential for a well-decorated home. Organized spaces feel more open and peaceful. Invest in stylish storage solutions like baskets and shelves to keep things tidy while enhancing your home's aesthetics.",
+      "views": 0,
+      "date": "05-10-2024",
+      "image": "https://images.unsplash.com/photo-1729710877215-2b7dde8233d1?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+      "id": "3",
+      "title": "Cooking Tips for Beginners",
+      "author": "Mike Brown",
+      "content": "Learning to cook can be both fun and rewarding, especially when you start with the basics. Begin by mastering a few simple recipes that use fresh, seasonal ingredients. Familiarizing yourself with basic techniques will build your confidence in the kitchen.\n\nOrganization is key. Before you start cooking, gather all your ingredients and prep them in advance. This 'mise en place' approach ensures a smooth cooking process and reduces the chances of missing steps.\n\nInvest in quality kitchen tools. A sharp knife, sturdy cutting board, and reliable cookware can make cooking easier and more enjoyable. They also help ensure consistent results.\n\nDon’t be afraid to experiment with flavors. Try new herbs, spices, and seasonings to enhance your dishes. Taste your food throughout the cooking process to adjust flavors and create balanced, delicious meals.\n\nLastly, practice makes perfect. Cooking is a skill that improves with time and experience. Start small, celebrate your successes, and learn from your mistakes to become a confident home chef.",
+      "views": 0,
+      "date": "06-10-2024",
+      "image": "https://images.unsplash.com/photo-1654608904845-7872f07475bc?q=80&w=2074&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+      "id": "1733808534264",
+      "title": "Something",
+      "author": "Someone",
+      "image": "https://res.cloudinary.com/dlvmupovg/image/upload/v1733808533/d8b6fzhazodkp9ndwblo.jpg",
+      "content": "Content here an there",
+      "views": 0,
+      "date": "2024-12-10T05:28:54.264Z"
+    },
+    {
+      "id": "1733811737562",
+      "title": "Another Thing",
+      "author": "Another People",
+      "image": "https://res.cloudinary.com/dlvmupovg/image/upload/v1733811737/pzm9iljyxeszcprl6heg.jpg",
+      "content": "Some content here",
+      "views": 0,
+      "date": "2024-12-10T06:22:17.562Z"
+    },
+    {
+      "id": "1733814689532",
+      "title": "One",
+      "author": "Two",
+      "content": "Three",
+      "views": 0,
+      "date": "2024-12-10T07:11:29.532Z"
+    },
+    {
+      "id": "1733814761463",
+      "title": "One",
+      "author": "Two",
+      "content": "Three",
+      "views": 0,
+      "date": "2024-12-10T07:12:41.463Z"
+    },
+    {
+      "id": "1733814840849",
+      "title": "Testing",
+      "author": "Tested",
+      "content": "Test only",
+      "views": 0,
+      "date": "2024-12-10T07:14:00.849Z"
+    },
+    {
+      "id": "1733815051586",
+      "title": "Testing",
+      "author": "Testing Again",
+      "image": "https://res.cloudinary.com/dlvmupovg/image/upload/v1733815051/og1gkkccuw2hnfwlm3jr.png",
+      "content": "Madara bin agus",
+      "views": 0,
+      "date": "2024-12-10T07:17:31.586Z"
+    },
+    {
+      "id": "1733819335628",
+      "title": "ABCEF",
+      "author": "asdasdasd",
+      "image": "https://res.cloudinary.com/dlvmupovg/image/upload/v1733819335/u1npw3bow2lilae0h3hs.png",
+      "content": "123456",
+      "views": 0,
+      "date": "2024-12-10T08:28:55.628Z"
+    },
+    {
+      "id": "1733819391317",
+      "title": "ABCEF",
+      "author": "asdasdasd",
+      "image": "https://res.cloudinary.com/dlvmupovg/image/upload/v1733819390/h9igl1fjmgdsn7dod9g4.png",
+      "content": "123456",
+      "views": 0,
+      "date": "2024-12-10T08:29:51.317Z"
+    }
+  ]
+}
