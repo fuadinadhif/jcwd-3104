@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1734677151188,
+    "title": "Staycation",
+    "category": "entertaiment",
+    "date": "11-20-2024",
+    "nominal": 1000000,
+    "type": "expense"
+  },
+  {
+    "id": 1734677623008,
+    "title": "Laundry",
+    "category": "basic-needs",
+    "date": "11-22-2024",
+    "nominal": 35000,
+    "type": "expense"
+  },
+  {
+    "id": 1734677624425,
+    "title": "Car Maintenance",
+    "category": "transportation",
+    "date": "11-23-2024",
+    "nominal": 5000000,
+    "type": "expense"
+  },
+  {
+    "id": 1734677625933,
+    "title": "New Shoes",
+    "category": "entertaiment",
+    "date": "11-24-2024",
+    "nominal": 2000000,
+    "type": "expense"
+  }
+]

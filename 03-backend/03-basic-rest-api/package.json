@@ -1,0 +1,24 @@
+{
+  "name": "03-basic-rest-api",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "npx tsc",
+    "dev": "npx tsx --watch src/app.ts",
+    "start": "npm run build && node dist/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.10.2",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
