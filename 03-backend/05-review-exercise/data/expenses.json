@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "title": "Laundry",
+    "nominal": 40000,
+    "category": "Needs",
+    "type": "expense",
+    "date": "1-7-2024"
+  },
+  {
+    "id": 2,
+    "title": "Staycation",
+    "nominal": 10000000,
+    "category": "Entertaiment",
+    "type": "expense",
+    "date": "31-12-2024"
+  }
+]
