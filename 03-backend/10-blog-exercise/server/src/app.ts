@@ -1,5 +1,6 @@
 import express, { Request, Response } from "express";
 import { PrismaClient } from "@prisma/client";
+import cors from "cors";
 
 const app = express();
 const PORT = 8000;
@@ -7,6 +8,12 @@ const prisma = new PrismaClient();
 
 // Read body property from request object
 app.use(express.json());
+
+app.use(
+  cors({
+    origin: "http://localhost:3000",
+  })
+);
 
 // Add post
 app.post("/api/v1/posts", async (req: Request, res: Response) => {
@@ -109,6 +116,18 @@ app.post("/api/v1/categories", async (req: Request, res: Response) => {
     });
 
     res.status(200).json({ message: "New category added" });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "General error. Good luck!" });
+  }
+});
+
+// Get all categories
+app.get("/api/v1/categories", async (req: Request, res: Response) => {
+  try {
+    const categories = await prisma.category.findMany();
+
+    res.status(200).json({ ok: true, data: categories });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "General error. Good luck!" });
