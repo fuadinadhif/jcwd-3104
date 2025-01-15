@@ -60,10 +60,7 @@ app.get("/api/v1/posts", async (req: Request, res: Response) => {
         id: post.id,
         title: post.title,
         excerpt: post.excerpt,
-        content: post.content,
         image: post.image,
-        createdAt: post.createdAt,
-        updatedAt: post.updatedAt,
         categories: post.CategoryPost.map((category) => category.Category.name),
       };
     });
@@ -76,6 +73,29 @@ app.get("/api/v1/posts", async (req: Request, res: Response) => {
 });
 
 // Get single (detail) post
+app.get("/api/v1/posts/:id", async (req: Request, res: Response) => {
+  try {
+    const post = await prisma.post.findUnique({
+      where: { id: +req.params.id },
+      include: { CategoryPost: { include: { Category: true } } },
+    });
+
+    const response = {
+      id: post?.id,
+      title: post?.title,
+      content: post?.content,
+      image: post?.image,
+      categories: post?.CategoryPost.map((category) => category.Category.name),
+      createdAt: post?.createdAt,
+      updatedAt: post?.updatedAt,
+    };
+
+    res.status(200).json({ ok: true, data: response });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "General error. Good luck!" });
+  }
+});
 
 // Add category
 app.post("/api/v1/categories", async (req: Request, res: Response) => {
