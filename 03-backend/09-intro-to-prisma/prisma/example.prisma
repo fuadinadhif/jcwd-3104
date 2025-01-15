@@ -1,0 +1,22 @@
+model Post {
+  id    Int    @id @default(autoincrement())
+  title String
+
+  CategoryPost CategoryPost[]
+}
+
+model Category {
+  id   Int    @id @default(autoincrement())
+  name String
+
+  CategoryPost CategoryPost[]
+}
+
+model CategoryPost {
+  id         Int @id @default(autoincrement())
+  postId     Int
+  categoryId Int
+
+  Post     Post     @relation(fields: [postId], references: [id])
+  Category Category @relation(fields: [categoryId], references: [id])
+}

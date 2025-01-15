@@ -133,6 +133,62 @@ app.post("/api/v1/managers", async (req: Request, res: Response) => {
   }
 });
 
+app.get("/api/v1/managers/:id", async (req: Request, res: Response) => {
+  try {
+    const manager = await prisma.manager.findUnique({
+      where: { id: +req.params.id },
+      include: { Branch: true, Laptop: true },
+    });
+
+    res.status(200).json({ ok: true, data: manager });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "General error. Good luck!" });
+  }
+});
+
+/* --------------------------------- LAPTOP --------------------------------- */
+app.post("", () => {});
+
+app.put("/api/v1/laptops/:id", async (req: Request, res: Response) => {
+  try {
+    const targetLaptop = await prisma.laptop.findUnique({
+      where: { id: +req.params.id },
+    });
+
+    if (!targetLaptop) {
+      res.status(404).json({ message: "Laptop not found" });
+      return;
+    }
+
+    await prisma.laptop.update({
+      where: { id: +req.params.id },
+      data: {
+        brand: req.body.brand,
+        barcode: req.body.barcode,
+      },
+    });
+
+    res.status(200).json({ ok: true, message: "Laptop updated" });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "General error. Good luck!" });
+  }
+});
+
+app.delete("/api/v1/laptops/:id", async (req: Request, res: Response) => {
+  try {
+    await prisma.laptop.delete({
+      where: { id: +req.params.id },
+    });
+
+    res.status(200).json({ ok: true, message: "Laptop deleted" });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "General error. Good luck!" });
+  }
+});
+
 app.listen(PORT, () => {
   console.log(`Server is listening on port: ${PORT}`);
 });

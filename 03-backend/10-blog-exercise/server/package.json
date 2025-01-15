@@ -1,13 +1,10 @@
 {
-  "name": "09-intro-to-prisma",
+  "name": "server",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
     "dev": "npx tsx --watch src/app.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "prisma": {
-    "seed": "npx tsx prisma/seed.ts"
   },
   "keywords": [],
   "author": "",
@@ -15,12 +12,12 @@
   "description": "",
   "dependencies": {
     "@prisma/client": "^6.2.1",
-    "express": "^4.21.2",
-    "prisma": "^6.2.1"
+    "express": "^4.21.2"
   },
   "devDependencies": {
     "@types/express": "^5.0.0",
-    "@types/node": "^22.10.5",
+    "@types/node": "^22.10.6",
+    "prisma": "^6.2.1",
     "tsx": "^4.19.2",
     "typescript": "^5.7.3"
   }
