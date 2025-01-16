@@ -1,6 +1,10 @@
 import express, { Request, Response } from "express";
 import { PrismaClient } from "@prisma/client";
 import cors from "cors";
+import fs from "node:fs/promises";
+
+import { upload } from "./middlewares/upload-middleware";
+import cloudinary from "./configs/cloudinary";
 
 const app = express();
 const PORT = 8000;
@@ -16,44 +20,57 @@ app.use(
 );
 
 // Add post
-app.post("/api/v1/posts", async (req: Request, res: Response) => {
-  try {
-    const { title, excerpt, content, image, categoryIds } = req.body;
+app.post(
+  "/api/v1/posts",
+  upload.single("image"),
+  async (req: Request, res: Response) => {
+    try {
+      console.log(req.body);
+      console.log(req.file)
 
-    if (
-      !title ||
-      !excerpt ||
-      !content ||
-      !image ||
-      !categoryIds ||
-      categoryIds.length <= 0
-    ) {
-      res.status(400).json({ message: "Missing required fields!" });
-      return;
-    }
+      const { title, excerpt, content, categoryIds } = req.body;
 
-    await prisma.post.create({
-      data: {
-        title: title,
-        excerpt: excerpt,
-        content: content,
-        image: image,
-        CategoryPost: {
-          createMany: {
-            data: categoryIds.map((category: number) => {
-              return { categoryId: category };
-            }),
+      if (
+        !title ||
+        !excerpt ||
+        !content ||
+        !req.file ||
+        !categoryIds ||
+        categoryIds.length <= 0
+      ) {
+        res.status(400).json({ message: "Missing required fields!" });
+        return;
+      }
+
+      const cloudinaryData = await cloudinary.uploader.upload(req.file.path, {
+        folder: "blog/images",
+      });
+
+      fs.unlink(req.file.path);
+
+      await prisma.post.create({
+        data: {
+          title: title,
+          excerpt: excerpt,
+          content: content,
+          image: cloudinaryData.secure_url,
+          CategoryPost: {
+            createMany: {
+              data: categoryIds.map((category: number) => {
+                return { categoryId: +category };
+              }),
+            },
           },
         },
-      },
-    });
+      });
 
-    res.status(200).json({ ok: true, message: "New post added" });
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: "General error. Good luck!" });
+      res.status(201).json({ ok: true, message: "New post added" });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: "General error. Good luck!" });
+    }
   }
-});
+);
 
 // Get all post
 app.get("/api/v1/posts", async (req: Request, res: Response) => {
@@ -133,6 +150,35 @@ app.get("/api/v1/categories", async (req: Request, res: Response) => {
     res.status(500).json({ message: "General error. Good luck!" });
   }
 });
+
+/* ------------------------------- PLAYGROUND ------------------------------- */
+// Upload file
+app.post(
+  "/api/v1/uploads",
+  upload.single("image"),
+  async (req: Request, res: Response) => {
+    try {
+      if (!req.file) {
+        res.status(400).json({ message: "Missing image!" });
+        return;
+      }
+
+      const cloudinaryData = await cloudinary.uploader.upload(req.file.path, {
+        folder: "blog/images",
+      });
+
+      fs.unlink(req.file.path);
+
+      res.status(201).json({
+        ok: true,
+        data: { body: req.body, file: req.file, cloudinary: cloudinaryData },
+      });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: "General error. Good luck!" });
+    }
+  }
+);
 
 app.listen(PORT, () => {
   console.log(`Server is listening on port: ${PORT}`);

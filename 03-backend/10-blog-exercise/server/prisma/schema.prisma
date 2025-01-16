@@ -41,6 +41,6 @@ model CategoryPost {
   postId     Int
   categoryId Int
 
-  Post     Post     @relation(fields: [postId], references: [id])
-  Category Category @relation(fields: [categoryId], references: [id])
+  Post     Post     @relation(fields: [postId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  Category Category @relation(fields: [categoryId], references: [id], onDelete: Cascade, onUpdate: Cascade)
 }
