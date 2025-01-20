@@ -13,6 +13,12 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum Role {
+  READER
+  AUTHOR
+  ADMIN
+}
+
 model Post {
   id        Int      @id @default(autoincrement())
   title     String
@@ -43,4 +49,29 @@ model CategoryPost {
 
   Post     Post     @relation(fields: [postId], references: [id], onDelete: Cascade, onUpdate: Cascade)
   Category Category @relation(fields: [categoryId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+}
+
+model User {
+  id             Int      @id @default(autoincrement())
+  name           String
+  username       String   @unique
+  password       String
+  email          String   @unique
+  emailConfirmed Boolean  @default(false)
+  role           Role     @default(READER)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  ConfirmToken ConfirmToken[]
+}
+
+model ConfirmToken {
+  id          Int      @id @default(autoincrement())
+  token       String
+  expiredDate DateTime
+  used        Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  userId      Int
+
+  User User? @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
