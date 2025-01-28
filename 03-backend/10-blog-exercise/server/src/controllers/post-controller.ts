@@ -3,6 +3,9 @@ import fs from "node:fs/promises";
 import { PrismaClient } from "@prisma/client";
 
 import cloudinary from "../configs/cloudinary";
+import { publishPost } from "../crons/post-cron";
+import { logger } from "../middlewares/error-middleware";
+import redis from "../configs/redis";
 
 const prisma = new PrismaClient();
 
@@ -12,7 +15,7 @@ export async function createPost(
   next: NextFunction
 ) {
   try {
-    const { title, excerpt, content, categoryIds } = req.body;
+    const { title, excerpt, content, categoryIds, publishedDate } = req.body;
 
     if (
       !title ||
@@ -22,7 +25,9 @@ export async function createPost(
       !categoryIds ||
       categoryIds.length <= 0
     ) {
-      res.status(400).json({ message: "Missing required fields!" });
+      const errorMessage = "Missing required fields";
+      logger(errorMessage);
+      res.status(400).json({ message: errorMessage });
       return;
     }
 
@@ -32,12 +37,13 @@ export async function createPost(
 
     fs.unlink(req.file.path);
 
-    await prisma.post.create({
+    const newPost = await prisma.post.create({
       data: {
         title: title,
         excerpt: excerpt,
         content: content,
         image: cloudinaryData.secure_url,
+        publishedDate: new Date(publishedDate),
         CategoryPost: {
           createMany: {
             data: categoryIds.map((category: number) => {
@@ -47,6 +53,17 @@ export async function createPost(
         },
       },
     });
+
+    if (new Date(publishedDate) < new Date()) {
+      await prisma.post.update({
+        where: { id: newPost.id },
+        data: { published: true },
+      });
+    } else {
+      publishPost(newPost.id, new Date(publishedDate));
+    }
+
+    await redis.del("allPosts");
 
     res.status(201).json({ ok: true, message: "New post added" });
   } catch (error) {
@@ -60,6 +77,15 @@ export async function getAllPosts(
   next: NextFunction
 ) {
   try {
+    const cachedPosts = await redis.get("allPosts");
+
+    if (cachedPosts) {
+      res
+        .status(200)
+        .json({ ok: true, data: JSON.parse(cachedPosts), cached: true });
+      return;
+    }
+
     const posts = await prisma.post.findMany({
       include: { CategoryPost: { include: { Category: true } } },
     });
@@ -74,11 +100,25 @@ export async function getAllPosts(
       };
     });
 
-    res.status(200).json({ ok: true, data: response });
+    await redis.setex("allPosts", 3600, JSON.stringify(response));
+
+    res.status(200).json({ ok: true, data: response, cached: false });
   } catch (error) {
     next(error);
   }
 }
+
+export async function getPublishedPosts(
+  req: Request,
+  res: Response,
+  next: NextFunction
+) {
+  const posts = await prisma.post.findMany({
+    where: { published: true },
+  });
+}
+
+export async function getDraftPosts() {}
 
 export async function getSinglePost(
   req: Request,

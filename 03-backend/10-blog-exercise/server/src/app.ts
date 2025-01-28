@@ -11,7 +11,7 @@ import errorMiddleware from "./middlewares/error-middleware";
 const app = express();
 const PORT = 8000;
 
-// Read body property from request object
+// Read body JSON property from request object
 app.use(express.json());
 // Read cookies property from req object
 app.use(cookieParser());

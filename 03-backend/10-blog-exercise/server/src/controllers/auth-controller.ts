@@ -1,23 +1,16 @@
 import { Request, Response, NextFunction } from "express";
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient, Role } from "@prisma/client";
 import { genSalt, hash, compare } from "bcrypt";
 import jwt from "jsonwebtoken";
 import { Resend } from "resend";
 import crypto from "node:crypto";
 import fs from "node:fs/promises";
 import handlebars from "handlebars";
-import { z } from "zod";
+
+import { registerSchema } from "../schemas/auth-schema";
 
 const prisma = new PrismaClient();
 const resend = new Resend(process.env.RESEND_API_KEY);
-
-const registerSchema = z.object({
-  name: z.string().min(3, "Name must be 3 characters or more"),
-  username: z.string(),
-  email: z.string().email("Invalid email format"),
-  password: z.string().min(6, "Password must be at least 6 characters"),
-  role: z.string(),
-});
 
 export async function register(
   req: Request,
@@ -47,7 +40,13 @@ export async function register(
     const hashedPassword = await hash(password, salt);
 
     const newUser = await prisma.user.create({
-      data: { name, username, email, password: hashedPassword, role },
+      data: {
+        name,
+        username,
+        email,
+        password: hashedPassword,
+        role: role as Role,
+      },
     });
 
     const confirmToken = crypto.randomBytes(20).toString("hex");
@@ -83,10 +82,6 @@ export async function register(
 
     res.status(201).json({ ok: true, message: "New user added" });
   } catch (error) {
-    if (error instanceof z.ZodError) {
-      res.status(400).json({ message: error.errors });
-    }
-
     next(error);
   }
 }

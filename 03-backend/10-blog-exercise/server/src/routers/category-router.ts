@@ -3,13 +3,15 @@ import {
   createCategory,
   getAllCategories,
 } from "../controllers/category-controller";
-import { roleGuard, verifyToken } from "../middlewares/auth-middleware";
+// import { roleGuard, verifyToken } from "../middlewares/auth-middleware";
 
 const router = express.Router();
 
-router
-  .route("/")
-  .get(verifyToken, roleGuard("ADMIN"), getAllCategories)
-  .post(verifyToken, roleGuard("AUTHOR"), createCategory);
+// router
+//   .route("/")
+//   .get(verifyToken, roleGuard("ADMIN"), getAllCategories)
+//   .post(verifyToken, roleGuard("AUTHOR"), createCategory);
+
+router.route("/").get(getAllCategories).post(createCategory);
 
 export default router;
