@@ -1,3 +1,5 @@
 /node_modules
 /playground
 /.vscode
+# Local Netlify folder
+.netlify

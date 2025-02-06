@@ -1,0 +1,22 @@
+{
+  "name": "12-deployment",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx turbo run build",
+    "dev": "npx turbo run dev",
+    "start": "npx turbo run start",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "packageManager": "npm@10.8.2",
+  "workspaces": [
+    "apps/*"
+  ],
+  "devDependencies": {
+    "turbo": "^2.4.0"
+  }
+}
