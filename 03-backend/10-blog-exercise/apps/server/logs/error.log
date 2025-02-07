@@ -1,0 +1,66 @@
+2025-01-23T08:12:07.901Z - 
+Invalid `prisma.post.create()` invocation in
+/home/blackie/purwadhika/jcwd-3104/03-backend/10-blog-exercise/server/src/controllers/post-controller.ts:36:39
+
+  33 
+  34 fs.unlink(req.file.path);
+  35 
+→ 36 const newPost = await prisma.post.create({
+       data: {
+         title: [
+           "New Post Everyday"
+         ],
+         ~~~~~~~~~~~~~~~~~~~~~
+         excerpt: "New excerpt for every post",
+         content: "New content for everything",
+         image: "https://res.cloudinary.com/dlvmupovg/image/upload/v1737619926/blog/images/igewqkvqmwmnjp6kti2t.jpg",
+         publishedDate: new Date("2025-01-23T04:42:00.000Z"),
+         CategoryPost: {
+           createMany: {
+             data: [
+               {
+                 categoryId: 3
+               }
+             ]
+           }
+         }
+       }
+     })
+
+Argument `title`: Invalid value provided. Expected String, provided (String).
+2025-01-23T08:13:17.820Z - categoryIds.map is not a function
+2025-01-23T08:13:54.712Z - categoryIds.map is not a function
+2025-01-23T08:21:16.601Z - Missing required fields
+2025-01-23T09:12:11.398Z - 
+Invalid `prisma.post.findMany()` invocation in
+/app/src/controllers/post-controller.ts:89:37
+
+  86   return;
+  87 }
+  88 
+→ 89 const posts = await prisma.post.findMany(
+Can't reach database server at `localhost:5432`
+
+Please make sure your database server is running at `localhost:5432`.
+2025-01-23T09:12:12.355Z - 
+Invalid `prisma.post.findMany()` invocation in
+/app/src/controllers/post-controller.ts:89:37
+
+  86   return;
+  87 }
+  88 
+→ 89 const posts = await prisma.post.findMany(
+Can't reach database server at `localhost:5432`
+
+Please make sure your database server is running at `localhost:5432`.
+2025-01-23T09:13:48.777Z - 
+Invalid `prisma.post.findMany()` invocation in
+/app/src/controllers/post-controller.ts:89:37
+
+  86   return;
+  87 }
+  88 
+→ 89 const posts = await prisma.post.findMany(
+Can't reach database server at `localhost:5432`
+
+Please make sure your database server is running at `localhost:5432`.

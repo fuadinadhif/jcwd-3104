@@ -1,0 +1,21 @@
+{
+  "name": "10-blog-exercise",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx turbo run build",
+    "dev": "npx turbo run dev",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "npm@11.1.0",
+  "workspaces": [
+    "/apps/*"
+  ],
+  "devDependencies": {
+    "turbo": "^2.4.0"
+  }
+}
