@@ -5,6 +5,8 @@ import cookieParser from "cookie-parser";
 import postRouter from "./routers/post-router";
 import categoryRouter from "./routers/category-router";
 import authRouter from "./routers/auth-router";
+import roleRouter from "./routers/role-router";
+
 import notFoundMiddleware from "./middlewares/not-found-middleware";
 import errorMiddleware from "./middlewares/error-middleware";
 
@@ -25,6 +27,7 @@ app.use(
 app.use("/api/v1/posts", postRouter);
 app.use("/api/v1/categories", categoryRouter);
 app.use("/api/v1/auth", authRouter);
+app.use("/api/v1/roles", roleRouter);
 
 app.use(notFoundMiddleware);
 app.use(errorMiddleware);

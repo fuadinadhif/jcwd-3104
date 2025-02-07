@@ -1,3 +1,5 @@
+import "dotenv/config";
+
 import express from "express";
 import prisma from "./configs/prisma";
 
@@ -39,3 +41,5 @@ app.post("/api/v1/users", async (req, res) => {
 app.listen(PORT, () => {
   console.info(`Server is listening on port: ${PORT}`);
 });
+
+export default app;

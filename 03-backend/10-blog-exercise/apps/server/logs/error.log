@@ -64,3 +64,37 @@ Invalid `prisma.post.findMany()` invocation in
 Can't reach database server at `localhost:5432`
 
 Please make sure your database server is running at `localhost:5432`.
+2025-02-07T09:00:00.273Z - [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "username"
+    ],
+    "message": "Required"
+  }
+]
+2025-02-07T09:42:26.338Z - [
+  {
+    "validation": "email",
+    "code": "invalid_string",
+    "message": "Invalid email format",
+    "path": [
+      "email"
+    ]
+  },
+  {
+    "received": "",
+    "code": "invalid_enum_value",
+    "options": [
+      "AUTHOR",
+      "ADMIN",
+      "READER"
+    ],
+    "path": [
+      "role"
+    ],
+    "message": "Invalid enum value. Expected 'AUTHOR' | 'ADMIN' | 'READER', received ''"
+  }
+]
