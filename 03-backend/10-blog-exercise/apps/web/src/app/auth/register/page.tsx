@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { toast, ToastContainer } from "react-toastify";
+import { notify } from "@/utils/notify-toast";
 
 export default function RegisterPage() {
   const [roles, setRoles] = useState<string[]>();
@@ -29,10 +29,6 @@ export default function RegisterPage() {
 
     getRoles();
   }, []);
-
-  function notify(message: string) {
-    return toast(message);
-  }
 
   async function handleSubmit() {
     try {
@@ -71,7 +67,6 @@ export default function RegisterPage() {
 
   return (
     <section className="flex flex-col min-h-screen justify-center items-center">
-      <ToastContainer />
       <form
         className="flex flex-col gap-2"
         onSubmit={(e) => {
