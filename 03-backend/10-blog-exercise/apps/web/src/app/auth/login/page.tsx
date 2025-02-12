@@ -31,7 +31,7 @@ export default function LoginPage() {
       }
 
       notify("Login successfull");
-      // router.push("/");
+      router.push("/");
     } catch (error) {
       console.error(error);
     } finally {
