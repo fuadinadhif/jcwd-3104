@@ -9,7 +9,7 @@ export async function verifyToken(
   next: NextFunction
 ) {
   try {
-    const token = req.cookies.token;
+    const token = req.cookies.accessToken;
 
     if (!token) {
       res.status(401).json({ message: "No token provided" });

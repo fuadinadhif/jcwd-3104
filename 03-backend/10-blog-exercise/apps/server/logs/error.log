@@ -98,3 +98,39 @@ Please make sure your database server is running at `localhost:5432`.
     "message": "Invalid enum value. Expected 'AUTHOR' | 'ADMIN' | 'READER', received ''"
   }
 ]
+2025-02-14T09:59:11.811Z - jwt expired
+2025-02-14T10:01:15.742Z - jwt expired
+2025-02-14T10:09:18.572Z - 
+Invalid `prisma.point.update()` invocation in
+/home/blackie/purwadhika/jcwd-3104/03-backend/10-blog-exercise/apps/server/src/controllers/transaction-controller.ts:137:26
+
+  134 
+  135 finalPrice = finalPrice - maxPointToUse;
+  136 
+→ 137 await prisma.point.update({
+        where: {
+          id: 19
+        },
+        data: {
+      +   balance: Int
+        }
+      })
+
+Argument `balance` is missing.
+2025-02-14T10:10:35.725Z - 
+Invalid `prisma.point.update()` invocation in
+/home/blackie/purwadhika/jcwd-3104/03-backend/10-blog-exercise/apps/server/src/controllers/transaction-controller.ts:137:26
+
+  134 
+  135 finalPrice = finalPrice - maxPointToUse;
+  136 
+→ 137 await prisma.point.update({
+        where: {
+          userId: 19
+        },
+        data: {
+      +   balance: Int
+        }
+      })
+
+Argument `balance` is missing.

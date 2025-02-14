@@ -6,6 +6,9 @@
     "dev": "npx tsx --watch src/app.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "prisma": {
+    "seed": "npx tsx prisma/seed.ts"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",

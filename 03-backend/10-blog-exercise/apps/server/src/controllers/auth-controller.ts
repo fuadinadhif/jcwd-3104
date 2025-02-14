@@ -46,6 +46,7 @@ export async function register(
         email,
         password: hashedPassword,
         role: role as Role,
+        referralCode: "",
       },
     });
 
@@ -162,6 +163,7 @@ export async function login(req: Request, res: Response, next: NextFunction) {
     }
 
     const jwtPayload = {
+      id: existingUser.id,
       name: existingUser.name,
       email: existingUser.email,
       role: existingUser.role,
@@ -175,6 +177,7 @@ export async function login(req: Request, res: Response, next: NextFunction) {
         httpOnly: true,
         sameSite: "lax",
         secure: false,
+        domain: "localhost",
       })
       .status(200)
       .json({ ok: true, message: "Login success" });

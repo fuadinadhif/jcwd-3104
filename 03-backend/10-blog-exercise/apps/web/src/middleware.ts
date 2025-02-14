@@ -33,9 +33,16 @@ export async function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
+  if (pathname.startsWith("/dashboard")) {
+    if (role === "AUTHOR")
+      return NextResponse.redirect(new URL("/dashboard/author", request.url));
+    if (role === "READER")
+      return NextResponse.redirect(new URL("/dashboard/reader", request.url));
+  }
+
   return NextResponse.redirect(new URL("/not-found", request.url));
 }
 
 export const config = {
-  matcher: ["/dashboard/:path*", "/about"],
+  matcher: ["/dashboard/:path*", "/about", "/blog"],
 };

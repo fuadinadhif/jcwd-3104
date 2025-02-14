@@ -23,7 +23,7 @@ export default function RegisterPage() {
         const roles = await response.json();
         setRoles(roles.data);
       } catch (error) {
-        console.log(error);
+        console.error(error);
       }
     }
 

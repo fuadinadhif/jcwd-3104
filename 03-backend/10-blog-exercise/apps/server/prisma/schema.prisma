@@ -26,12 +26,17 @@ model Post {
   excerpt       String
   content       String
   image         String
+  userId        Int
+  price         Decimal
   published     Boolean  @default(false)
   publishedDate DateTime @default(now())
   createdAt     DateTime @default(now())
   updatedAt     DateTime @updatedAt
 
+  User         User           @relation(fields: [userId], references: [id])
   CategoryPost CategoryPost[]
+  Transaction  Transaction[]
+  Voucher      Voucher[]
 }
 
 model Category {
@@ -62,10 +67,16 @@ model User {
   email          String   @unique
   emailConfirmed Boolean  @default(false)
   role           Role     @default(READER)
+  referralCode   String
   createdAt      DateTime @default(now())
   updatedAt      DateTime @updatedAt
 
   ConfirmToken ConfirmToken[]
+  Post         Post[]
+  Wallet       Wallet?
+  Point        Point?
+  Coupon       Coupon[]
+  Transaction  Transaction[]
 }
 
 model ConfirmToken {
@@ -77,4 +88,65 @@ model ConfirmToken {
   userId      Int
 
   User User? @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Wallet {
+  id      Int     @id @default(autoincrement())
+  balance Decimal @default(0)
+  userId  Int     @unique
+
+  User User @relation(fields: [userId], references: [id])
+}
+
+model Point {
+  id      Int @id @default(autoincrement())
+  balance Int @default(0)
+  // expiredDate DateTime
+  // userId      Int
+  userId  Int @unique
+
+  User User @relation(fields: [userId], references: [id])
+}
+
+model Coupon {
+  id           Int      @id @default(autoincrement())
+  code         String   @unique
+  discountRate Int      @default(10)
+  used         Boolean  @default(false)
+  userId       Int
+  expiredDate  DateTime
+
+  User User @relation(fields: [userId], references: [id])
+}
+
+model Voucher {
+  id           Int      @id @default(autoincrement())
+  code         String   @unique
+  discountRate Int
+  stock        Int      @default(10)
+  postId       Int
+  expiredDate  DateTime
+
+  Post Post @relation(fields: [postId], references: [id])
+}
+
+model Transaction {
+  id     Int     @id @default(autoincrement())
+  amount Decimal
+  userId Int
+  postId Int
+
+  User    User      @relation(fields: [userId], references: [id])
+  Post    Post      @relation(fields: [postId], references: [id])
+  Receipt Receipt[]
+}
+
+model Receipt {
+  id            Int      @id @default(autoincrement())
+  receiptCode   String
+  receiptTotal  Decimal
+  transactionId Int
+  createdAt     DateTime @default(now())
+
+  Transaction Transaction @relation(fields: [transactionId], references: [id])
 }
